@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+/* Searchinput */
+.movieSearchInput {
+  margin-top: 20px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.empty-movies {
+  font-size: 20px;
+  font-weight: bold;
   color: white;
+  text-align: center;
+  border: 5px solid lightgray;
+  width: fit-content;
+  margin: 40px auto 0 auto;
+  padding: 5px;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.input-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  background-color: white;
+  margin: 0 auto;
+  max-width: fit-content;
+  padding: 5px;
+}
+.input-box input {
+  outline: none;
+  padding: 5px;
+  border: none;
+  height: 20px;
+  overflow: hidden;
+  font-size: 20px;
+  color: rgb(209, 61, 61);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-box button {
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-size: 20px;
+  color: rgb(209, 61, 61);
+}
+
+/* MoviesList */
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 15px;
+  column-gap: 15px;
+  max-width: 80%;
+  margin: 20px auto;
+}
+.movie-card {
+  position: relative;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 40vh;
+}
+.movie-card .movie-poster {
+  max-height: 40vh;
+  object-fit: fill;
+}
+
+.movie-details {
+  width: 100%;
+  display: block;
+  padding: 0 0 0 5px;
+  position: absolute;
+  bottom: 2px;
+  color: white;
+  transform: translateY(0.125rem);
+  transition: all 1s, linear;
+}
+
+.movie-details::before {
+  content: '';
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 50px 40px 250px #ae0202, inset -50px -40px 250px #000000;
+  filter: blur(10px);
+  transition: all 1s, linear;
+}
+
+.movie-details-hide {
+  display: none;
+}
+
+.movie-card .movie-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.movie-type {
+  position: relative;
+  background-color: yellow;
+  max-width: fit-content;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: default;
+}
+
+.movie-type .movie-type-name {
+  visibility: hidden;
+  width: fit-content;
+  background-color: purple;
+  color: white;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+.movie-type:hover .movie-type-name {
+  visibility: visible;
 }
